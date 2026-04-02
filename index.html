@@ -3,69 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大學生存指南</title>
+    <title>逢甲美食地圖</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: "Microsoft JhengHei", Arial, sans-serif;
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #e8f5e9;
+            background-color: #e3f2fd;
             color: #333;
         }
-        h1 {
+
+        header {
+            background-color: #1565c0;
+            padding: 20px;
             text-align: center;
-            font-size: 1.6em;
+            border-bottom: 2px solid #0d47a1;
         }
-        .tip {
-            background-color: #fff;
-            border-radius: 12px;
+
+        header h1 {
+            color: #ffffff;
+            font-size: 1.8em;
+        }
+
+        header p {
+            color: #bbdefb;
+            margin-top: 5px;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             padding: 15px;
-            margin: 15px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            background-color: #fff;
+            flex-wrap: wrap;
         }
-        .tip h3 {
-            margin: 0 0 8px 0;
+
+        .filter-bar button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
         }
-        .tip p {
-            margin: 0;
-            color: #555;
+
+        .filter-bar button.active {
+            background-color: #1565c0;
+            color: #fff;
+            border-color: #1565c0;
+        }
+
+        .restaurant-list {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .restaurant-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border-left: 4px solid #1565c0;
+        }
+
+        .restaurant-card h2 {
+            font-size: 1.2em;
+            color: #1565c0;
+        }
+
+        .restaurant-card .tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin: 8px 4px 8px 0;
+        }
+
+        .restaurant-card .details {
+            color: #666;
+            font-size: 0.9em;
             line-height: 1.6;
         }
-        .footer {
+
+        .restaurant-card .price {
+            font-weight: bold;
+            color: #c62828;
+        }
+
+        .restaurant-card .rating {
+            color: #fbc02d;
+        }
+
+        .notice {
+            max-width: 700px;
+            margin: 10px auto;
+            padding: 12px 15px;
+            background-color: #fff9c4;
+            border-radius: 8px;
             text-align: center;
+            font-size: 0.9em;
+            color: #f57f17;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
             color: #aaa;
-            margin-top: 30px;
             font-size: 0.85em;
         }
     </style>
 </head>
 <body>
-    <h1>🎓 大學生存指南 — 省錢篇</h1>
-    <p style="text-align:center; color:#888;">錢要花在刀口上，月底才不會吃土</p>
 
-    <div class="tip">
-        <h3>☕ 提神秘技</h3>
-        <p>早八的救星：自己帶保溫瓶裝黑咖啡，一個月省下 800 元。</p>
+    <header>
+        <h1>逢甲美食地圖</h1>
+        <p>精選校園周邊高評價店家</p>
+    </header>
+
+    <div class="notice">
+        營業時間僅供參考，實際以店家公告為準
     </div>
 
-    <div class="tip">
-        <h3>🍜 覓食法則</h3>
-        <p>午餐尖峰時段是 12:00～12:30，建議 12:35 再去，人少又有折扣便當。</p>
+    <div class="filter-bar">
+        <button class="active">全部</button>
+        <button>台式</button>
+        <button>日式</button>
+        <button>飲料</button>
+        <button>甜點</button>
+        <button>素食</button>
     </div>
 
-    <div class="tip">
-        <h3>📖 期末生存術</h3>
-        <p>不用去圖書館人擠人，找空教室才是真正的秘密基地，安靜又有冷氣。</p>
+    <div class="restaurant-list">
+
+        <div class="restaurant-card">
+            <h2>阿明滷肉飯</h2>
+            <span class="tag">台式</span>
+            <span class="tag">平價</span>
+            <div class="details">
+                <p>地址：逢甲路 12 號</p>
+                <p>營業時間：10:30 - 20:30</p>
+                <p class="price">均消：$60</p>
+                <p class="rating">★★★★☆ 4.2 分</p>
+                <p>推薦：招牌滷肉飯、豬腳飯、味噌湯</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>櫻花壽司</h2>
+            <span class="tag">日式</span>
+            <span class="tag">高評價</span>
+            <div class="details">
+                <p>地址：文華路 88 號</p>
+                <p>營業時間：11:30 - 14:00 / 17:00 - 21:00</p>
+                <p class="price">均消：$160</p>
+                <p class="rating">★★★★★ 4.8 分</p>
+                <p>推薦：極上鮭魚、海膽軍艦、炙燒和牛</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>茶覺人生</h2>
+            <span class="tag">飲料</span>
+            <div class="details">
+                <p>地址：福星路 33 號</p>
+                <p>營業時間：09:00 - 22:00</p>
+                <p class="price">均消：$45</p>
+                <p class="rating">★★★★☆ 4.0 分</p>
+                <p>推薦：鮮奶茶、冬瓜檸檬、芋頭牛奶</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>甜時光</h2>
+            <span class="tag">甜點</span>
+            <div class="details">
+                <p>地址：西安街 7 號</p>
+                <p>營業時間：12:00 - 19:00（週一公休）</p>
+                <p class="price">均消：$100</p>
+                <p class="rating">★★★★★ 4.5 分</p>
+                <p>推薦：伯爵千層、焦糖烤布蕾、生巧克力塔</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <h2>綠光蔬食</h2>
+            <span class="tag">素食</span>
+            <span class="tag">健康</span>
+            <div class="details">
+                <p>地址：西屯路 120 號</p>
+                <p>營業時間：11:00 - 20:00</p>
+                <p class="price">均消：$85</p>
+                <p class="rating">★★★★☆ 4.1 分</p>
+                <p>推薦：蔬菜咖哩、豆腐排飯、五穀沙拉</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="tip">
-        <h3>💰 省錢妙招</h3>
-        <p>教科書先問學長姐借，或上二手社團找，原價買書是大一才會做的事。</p>
-    </div>
+    <footer>
+        <p>逢甲美食地圖 &copy; 2025 — 由進階程式設計課程製作</p>
+    </footer>
 
-    <div class="footer">
-        <p>大學生存指南 v1.1 — 月底不吃土攻略 💸</p>
-    </div>
 </body>
 </html>
